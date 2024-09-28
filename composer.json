@@ -1,16 +1,21 @@
 {
-    "name": "vendor/project",
-    "description": "Php_Backend",
+    "name": "andert/apaphp_1",
+    "description": "PHP Backend with MySQL",
     "type": "project",
-    "license": "MIT",
+    "require": {
+        "firebase/php-jwt": "^6.10",
+        "symfony/http-foundation": "^7.1",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
     "authors": [
         {
             "name": "Andert51",
             "email": "andrest05143@gmail.com"
         }
-    ],
-    "require": {
-        "vlucas/phpdotenv": "^5.6",
-        "firebase/php-jwt": "^6.10"
-    }
+    ]
 }
