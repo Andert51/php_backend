@@ -24,19 +24,19 @@ class employeeRepo implements employeeInterface {
     }
 
     public function getByUser($usuario){
-        $selectUser = $this->db->prepare("SELECT * FROM employees WHERE usuario = ?");
+        $selectUser = $this->db->prepare("SELECT * FROM empleados WHERE usuario = ?");
         $selectUser->execute([$usuario]);
         return $selectUser->fetch(PDO::FETCH_ASSOC);
     }
 
     public function createEmployee($data){
         $insert = $this->db->prepare("INSERT INTO empleados (nombre, apaterno, amaterno, direccion, telefono, ciudad, estado, usuario, password, rol) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $insert->execute([$data['nombre'], $data['apaterno'], $data['amaterno'], $data['direccion'], $data['telefono'], $data['ciudad'], $data['estado'], $data['usuario'], $data['password'], $data['rol'], $data['rol']]);
+        $insert->execute([$data['nombre'], $data['apaterno'], $data['amaterno'], $data['direccion'], $data['telefono'], $data['ciudad'], $data['estado'], $data['usuario'], $data['password'], $data['rol']]);
     }
 
     public function updateEmployee($id, $data){
         $update = $this->db->prepare("UPDATE empleados SET nombre = ?, apaterno = ?, amaterno = ?, direccion = ?, telefono = ?, ciudad = ?, estado = ?, usuario = ?, password = ?, rol = ? WHERE  id = ?");
-        $update->execute([$data['nombre'], $data['apaterno'], $data['amaterno'], $data['direccion'], $data['telefono'], $data['ciudad'], $data['estado'], $data['usuario'], $data['password'], $data['rol'], $data['rol'], $id]);
+        $update->execute([$data['nombre'], $data['apaterno'], $data['amaterno'], $data['direccion'], $data['telefono'], $data['ciudad'], $data['estado'], $data['usuario'], $data['password'], $data['rol'], $id]);
     }
 
     public function deleteEmployee($id){
